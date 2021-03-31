@@ -1,6 +1,6 @@
 package onlineFitnessTrain;
 
-public class OnlineFitnessTrain {
+public class OnlineFitnessTrainMain {
 
 	public static void main(String[] args) {
 		WorkingOutPerson workingOutPerson = new WorkingOutPerson("Dani Nedelchev");
