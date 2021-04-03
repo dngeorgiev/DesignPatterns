@@ -3,6 +3,7 @@ package onlineFitnessTrain;
 public class OnSiteSpectator extends Spectator {
 
 	private Boolean _hasMask;
+	private CommandFactory _commandFactory;
 
 	public OnSiteSpectator(String name, Boolean hasMask) {
 		super(name);
@@ -22,13 +23,8 @@ public class OnSiteSpectator extends Spectator {
 		}
 		String currentExercise = this.getWorkingOutPerson().getUpdate();
 		
-		if (currentExercise == "Up") {
-			UpCommand upCommand = new UpCommand(this);
-			upCommand.execute();
-		} else if (currentExercise == "Down") {
-			DownCommand downCommand = new DownCommand(this);
-			downCommand.execute();
-		}
+		Command command = _commandFactory.createCommand(currentExercise, this);
+		command.execute();
 	}
 	
 	@Override

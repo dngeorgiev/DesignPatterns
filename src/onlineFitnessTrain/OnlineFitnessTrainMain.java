@@ -7,8 +7,11 @@ public class OnlineFitnessTrainMain {
 		
 		Trainer trainer = new Trainer("Ivan Ivanov");
 		trainer.setWorkingOutPerson(workingOutPerson);
-		Command upCommand = new UpCommand(workingOutPerson);
-		Command downCommand = new DownCommand(workingOutPerson);
+		
+		CommandFactory commandFactory = new CommandFactory();
+		
+		Command upCommand = commandFactory.createCommand("Up", workingOutPerson);
+		Command downCommand = commandFactory.createCommand("Down", workingOutPerson);
 		
 		Observer onlineSpectator1 = new OnlineSpectator("Ivanka Ivankova", "92.212.45.36", "Twitch.TV");
 		Observer onlineSpectator2 = new OnlineSpectator("Petyr Petrov", "95.122.88.34", "YouTube");
